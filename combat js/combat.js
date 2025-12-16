@@ -1,46 +1,50 @@
-// Simple combat simulation: dragon vs sorcier
+const combatant = [dragon, sorcier]
 let dragon = {
     name: "Mirdim",
     pointsDeVie: 1500,
-    precision: 45/100, // précision entre 0 et 1
+    precision: 45/100,       // precision entre 0 et 1
     force: 150,
-};
+}
 
 let sorcier = {
     name: "Grim",
     pointsDeVie: 500,
-    precision: 40/100,
+    precision: 40/100,      // precision entre 0 et 1
     force: 75,
-};
-
-const combatants = [dragon, sorcier];
-
-console.log(`Début du combat entre : ${dragon.name} et ${sorcier.name}`);
-
-function attaque(atq, def) {
-    let tirage = Math.random();
-    if (tirage <= atq.precision) {
-        def.pointsDeVie -= atq.force;
-        console.log(`${atq.name} touche ${def.name} et inflige ${atq.force} points de dégâts.`);
-    } else {
-        console.log(`${atq.name} rate son attaque.`);
+}
+for (fight, function fight(combat){
+        if (pointsDeVie > 0){
+            function dégat(DMG, adversaire) {
+                if (precision(DMG)){
+                    adversaire.pointsDeVie -= DMG.force 
+                }}
+        }
+        else {(pointsDeVie >= 0)
+            console.log(`fin du combat le gagnat est : ${combatant.pointsDeVie>0}`);
+        }
     }
-    if (def.pointsDeVie <= 0) {
-        console.log(`${def.name} est vaincu !`);
-    } else {
-        console.log(`${def.name} a encore ${def.pointsDeVie} points de vie.`);
+)
+
+
+function dégat(DMG, adversaire) {
+    if (precision(DMG)){
+        adversaire.pointsDeVie -= DMG.force 
     }
+    dégat(dragon, sorcier)
+console.log(`Début du combat entre : ${sorcier.name} et ${dragon.name}`);
+console.log(sorcier.pointsDeVie);
+console.log(dragon.pointsDeVie);
 }
 
-function combat(a, b) {
-    while (a.pointsDeVie > 0 && b.pointsDeVie > 0) {
-        attaque(a, b);
-        if (b.pointsDeVie <= 0) break;
-        attaque(b, a);
-    }
-    const winner = a.pointsDeVie > 0 ? a : b;
-    console.log(`Fin du combat, le gagnant est : ${winner.name}`);
-}
 
-combat(dragon, sorcier);
+function precision(precision) {
+    if (precision < 0) precision = 0;
+    if (precision > 1) precision = 1;
+    return startValue + precision * (targetValue - startValue);
+}
+const start = 0;   
+const target = 100;
+console.log(precision(0, start, target));
+console.log(precision(0.5, start, target));
+console.log(precision(1, start, target));
 
